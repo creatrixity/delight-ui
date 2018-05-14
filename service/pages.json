@@ -1,0 +1,22 @@
+{
+    "/": {
+        "name": "Home",
+        "meta": {
+            "title": "React PWA"
+        },
+        "title": "Delight",
+        "images": [],
+        "buttons": [{"url": "/settings", "title": "Settings"}],
+        "html": "<p>Delight is a PWA under development</p>",
+        "url": "/"
+    },
+    "/page-not-found": {
+        "name": "Page",
+        "meta": {
+            "title": "Page Not Found"
+        },
+        "title": "Page Not Found",
+        "html": "<p>The page you were looking for could not be found. Please contact an administrator.</p>",
+        "url": "/page-not-found"
+    }
+}
