@@ -1,13 +1,32 @@
 {
-  "presets": ["es2015"],
-  "env": {
-    "production": {
-      "plugins": [["emotion", { "hoist": true }]]
-    },
-    "development": {
-      "plugins": [
-        ["emotion", { "sourceMap": true, "autoLabel": true }]
+    "presets": [
+      "next/babel",
+      "@zeit/next-typescript/babel"
+    ],
+    "plugins": [
+      [
+        "module-resolver",
+        {
+          "root": [
+            "./"
+          ],
+          "alias": {
+            "@Utilities": "./src/Utilities",
+            "@Components": "./src/Components",
+            "@Containers": "./src/Containers",
+            "@Config": "./src/Config",
+            "@Constants": "./src/Constants",
+            "@Interfaces": "./src/Interfaces",
+            "@Reducers": "./src/Redux/Reducers",
+            "@Store": "./src/Store"
+          }
+        }
+      ],
+      [
+        "styled-components",
+        {
+          "ssr": true
+        }
       ]
-    }
-  }
+    ]
 }

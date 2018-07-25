@@ -1,0 +1,68 @@
+{
+	"compilerOptions": {
+		"allowJs": true,
+		"allowSyntheticDefaultImports": true,
+		"baseUrl": ".",
+		"jsx": "preserve",
+		"lib": [
+			"dom",
+			"es2017"
+		],
+		"module": "esnext",
+		"moduleResolution": "node",
+		"noEmit": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"preserveConstEnums": true,
+		"removeComments": false,
+		"skipLibCheck": true,
+		"resolveJsonModule": true,
+		"sourceMap": true,
+		"strict": true,
+		"target": "esnext",
+		"paths": {
+			"@Components/*": [
+				"./src/Components/*"
+			],
+			"@Components": [
+				"./src/Components"
+			],
+			"@Containers/*": [
+				"./src/Containers/*"
+			],
+			"@Containers": [
+				"./src/Containers"
+			],
+			"@Interfaces": [
+				"./src/Interfaces"
+			],
+			"@Interfaces/*": [
+				"./src/Interfaces/*"
+			],
+			"@Config": [
+				"./src/Config"
+			],
+			"@Constants": [
+				"./src/Constants"
+			],
+			"@Constants/*": [
+				"./src/Constants/*"
+			],
+			"@Reducers": [
+				"./src/Redux/Reducers"
+			],
+			"@Reducers/*": [
+				"./src/Redux/Reducers/*"
+			],
+			"@Store": [
+				"./src/Store"
+			],
+			"@Store/*": [
+				"./src/Store/*"
+			],
+			"@Utilities": [
+				"./src/Utilities"
+			]
+		},
+	}
+}
