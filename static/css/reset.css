@@ -1,0 +1,22 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#__next {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+@keyframes progress {
+  0% {
+      background-position: -200px 0;
+  }
+  
+  100% {
+      background-position: calc(200px + 100%) 0;
+  }
+}
