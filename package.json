@@ -65,7 +65,8 @@
     "test:coverage": "jest --coverage",
     "heroku-prebuild": "npm i --dev && NODE_ENV=production next build",
     "export": "NODE_ENV=production next export",
-    "analyze": "BUNDLE_ANALYZE=both npm run build"
+    "analyze": "BUNDLE_ANALYZE=both npm run build",
+    "release": "standard-version"
   },
   "author": "Caleb Mathew<kay@instachaw.com>",
   "license": "ISC"
