@@ -4,18 +4,28 @@ const relativePosition:'relative' = 'relative';
 const absolutePosition:'absolute' = 'absolute';
 
 type transformValueTypes = {
+  /** Sets the icon as open. */
   isOpen: boolean,
+  /** Number of degrees the icon should rotate by. */
   rotate?: number
 }
 
 type HamburgerMenuProps = transformValueTypes & {
+  /** Callback when the icon is clicked */
   menuClicked: () => any,
+  /** Renders the open state of the icon */
   isOpen?: boolean,
+  /** Icon width */
   width?: number,
+  /** Icon height */
   height?: number,
+  /** Stroke thickness for icon */
   strokeWidth: number,
+  /** Fill color for the icon */
   color?: string,
+  /** Radius size for the icon lines */
   borderRadius: number,
+  /** Duration for icon animations */
   animationDuration: number
 }
 

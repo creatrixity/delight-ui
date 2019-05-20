@@ -10,7 +10,16 @@ const defaultProps = {
   isActive: false
 }
 
-const DockerIcon:React.FC<{ name: string, label: string, isActive?: boolean }> = ({
+type DockerIconProps = {
+  /** SVG icon name. Examples: home, airplane, user. */
+  name: string,
+  /** Text label */
+  label: string,
+  /** Renders an active state for the icon. */
+  isActive?: boolean
+}
+
+const DockerIcon:React.FC<DockerIconProps> = ({
   name,
   label,
   isActive

@@ -3,7 +3,9 @@ import styled from 'styled-components';
 import { Box } from 'reakit';
 
 type GridContainerProps = {
+  /** Width of the adjoining gutter space. */
   gutterWidth?: string,
+  /** CSS styles. */
   style?: React.CSSProperties
 };
 

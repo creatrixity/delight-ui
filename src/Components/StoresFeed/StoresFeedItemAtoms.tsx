@@ -16,7 +16,9 @@ import { Badge, VerificationMark, Stencil } from '@Components';
 const { spacing } = theme;
 
 type StoresFeedItemThumbnailProps = {
+  /** Item thumbnail source file path */
   src?: string,
+  /** Thumbnail width */
   width: string
 };
 
@@ -49,8 +51,11 @@ export const StoresFeedItemThumbnail:React.FC<StoresFeedItemThumbnailProps> = ({
 }
 
 type StoresFeedItemDescriptionProps = {
+  /** Store name */
   storeTitle: string,
+  /** Description for store */
   storeDescription: string,
+  /** Renders <VerificationMark /> component */
   storeIsVerified?: boolean
 }
 
@@ -81,7 +86,9 @@ export const StoresFeedItemDescription:React.FC<StoresFeedItemDescriptionProps> 
 )
 
 type StoresFeedItemFooterProps = {
+  /** Store service hours */
   storeHours: string
+  /** Store service fees */
   storeServiceFee: string
 }
 

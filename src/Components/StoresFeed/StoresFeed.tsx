@@ -14,7 +14,9 @@ import { StoresFeedItemSkeleton } from './StoresFeedItemAtoms';
 import { formatServiceHour } from '@Utilities';
 
 type StoresFeedProps = {
+  /** Displays stores loading animation */
   isFetchingStores?: boolean,
+  /** Array list of stores */
   stores: IStorePage.IStoreData[]
 };
 

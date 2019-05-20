@@ -18,11 +18,17 @@ const thumbnailWidth = '30%';
 const contentWidth = `${100 - parseInt(thumbnailWidth)}%`;
 
 type StoresFeedItemProps = {
+  /** Description of store */
   description: string,
+  /** Renders <VerificationMark /> component */
   isVerified: boolean,
+  /** Name of the store */
   title: string,
+  /** Store service hours */
   serviceHours: string,
+  /** Store service fee */
   serviceFee: string,
+  /** Store thumbnail image name */
   thumbnailImageSrc: string
 };
 

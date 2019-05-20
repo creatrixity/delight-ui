@@ -3,7 +3,9 @@ import styled from 'styled-components';
 import { Flex } from 'reakit';
 
 type RowProps = {
+  /** Gutter width for component */
   rowGutter?: string,
+  /** CSS styling */
   style?: React.CSSProperties
 };
 

@@ -9,8 +9,11 @@ const {
 } = theme;
 
 type StencilProps = {
+  /** Border radius for stencil lines */
   radius?: string,
+  /** Height of stencil line */
   height?: string,
+  /** Width of stencil line */
   width?: string
 };
 

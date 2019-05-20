@@ -4,7 +4,9 @@ import { theme } from "@Config";
 import { Icon, HamburgerIcon, SearchBar } from "@Components";
 
 type NavbarProps = {
+  /** Renders the navbar menu */
   isMenuOpen: boolean,
+  /** Callback for navbar menu toggle */
   onMenuToggleClick: () => void
 }
 

@@ -5,11 +5,17 @@ import { Box } from 'reakit';
 import { computeColumnWidth } from '@Utilities';
 
 type ColumnProps = {
+  /** Width of column at small breakpoints */
   sm?: number,
+  /** Column width at medium breakpoints */
   md?: number,
+  /** Column width at large breakpoints */
   lg?: number,
+  /** Column width at extra large breakpoints */
   xl?: number,
+  /** Width of gutter */
   gutterWidth?: string,
+  /** CSS styling */
   style?: React.CSSProperties
 };
 
