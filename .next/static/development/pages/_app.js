@@ -24579,6 +24579,8 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
+var relativePosition = 'relative';
+var absolutePosition = 'absolute';
 var defaultProps = {
   width: 32,
   height: 16,
@@ -24597,17 +24599,41 @@ var getTransformValue = function getTransformValue(isOpen, defaultPos, rotate, h
   return "translate3d(0,".concat(height, ",0) rotate(").concat(rotationDegree, ")");
 };
 
+var getLineBase = function getLineBase(animationDuration, borderRadius, color, strokeWidth, marginTop) {
+  return {
+    display: 'block',
+    height: "".concat(strokeWidth, "px"),
+    width: '100%',
+    background: color,
+    transitionTimingFunction: "ease",
+    transitionDuration: "".concat(animationDuration, "s"),
+    borderRadius: "".concat(borderRadius, "px"),
+    transformOrigin: 'center',
+    position: absolutePosition,
+    marginTop: marginTop
+  };
+};
+
+var getMedianLine = function getMedianLine(animationDuration, isOpen, offsetTop, marginTop) {
+  return {
+    transitionTimingFunction: 'ease-out',
+    transitionDuration: "".concat(animationDuration / 4, "s"),
+    opacity: isOpen ? 0 : 1,
+    transform: isOpen ? 'translateX(500px)' : 'translateX(0)',
+    top: offsetTop,
+    marginTop: marginTop
+  };
+};
+
 var HamburgerIcon = function HamburgerIcon(props) {
-  var isOpen = props.isOpen,
-      strokeWidth = props.strokeWidth,
-      animationDuration = props.animationDuration;
-  var relativePosition = 'relative';
-  var absolutePosition = 'absolute';
-  strokeWidth = strokeWidth || 4;
-  animationDuration = animationDuration || 0.4;
+  var animationDuration = props.animationDuration,
+      borderRadius = props.borderRadius,
+      color = props.color,
+      isOpen = props.isOpen,
+      strokeWidth = props.strokeWidth;
   var width = "".concat(props.width, "px"),
       height = "".concat(props.height, "px"),
-      halfHeight = "".concat(parseInt(height.replace('px', '')) / 2, "px"),
+      halfHeight = "".concat(parseInt(height) / 2, "px"),
       halfStrokeWidth = "-".concat(strokeWidth / 2, "px");
   var styles = {
     container: {
@@ -24616,32 +24642,13 @@ var HamburgerIcon = function HamburgerIcon(props) {
       transform: "rotate(".concat(props.rotate, "deg)"),
       position: relativePosition
     },
-    lineBase: {
-      display: 'block',
-      height: "".concat(strokeWidth, "px"),
-      width: '100%',
-      background: props.color,
-      transitionTimingFunction: "ease",
-      transitionDuration: "".concat(animationDuration, "s"),
-      borderRadius: "".concat(props.borderRadius, "px"),
-      transformOrigin: 'center',
-      position: absolutePosition
-    },
+    lineBase: getLineBase(animationDuration, borderRadius, color || '#000', strokeWidth, halfStrokeWidth),
     firstLine: {
-      transform: getTransformValue(isOpen, 0, 45, halfHeight),
-      marginTop: halfStrokeWidth
+      transform: getTransformValue(isOpen, 0, 45, halfHeight)
     },
-    secondLine: {
-      transitionTimingFunction: 'ease-out',
-      transitionDuration: "".concat(animationDuration / 4, "s"),
-      opacity: isOpen ? 0 : 1,
-      transform: isOpen ? 'translateX(500px)' : 'translateX(0)',
-      top: halfHeight,
-      marginTop: halfStrokeWidth
-    },
+    secondLine: getMedianLine(animationDuration, isOpen, halfHeight, halfStrokeWidth),
     thirdLine: {
-      transform: getTransformValue(isOpen, height, -45, halfHeight),
-      marginTop: halfStrokeWidth
+      transform: getTransformValue(isOpen, height, -45, halfHeight)
     }
   };
   return react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("div", {
@@ -24828,19 +24835,16 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var Row = function Row(props) {
-  var gutterWidth = props.gutterWidth,
-      children = props.children,
-      style = props.style;
   var RowElement = Object(styled_components__WEBPACK_IMPORTED_MODULE_1__["default"])(reakit__WEBPACK_IMPORTED_MODULE_2__["Flex"]).withConfig({
     displayName: "Row__RowElement",
     componentId: "df8mqw-0"
-  })(["margin-left:-", ";margin-right:-", ";flex-wrap:wrap;"], gutterWidth, gutterWidth);
+  })(["margin-left:-", ";margin-right:-", ";flex-wrap:wrap;"], props.rowGutter, props.rowGutter);
   return react__WEBPACK_IMPORTED_MODULE_0__["createElement"](RowElement, {
-    style: style
-  }, children);
+    style: props.style
+  }, props.children);
 };
 Row.defaultProps = {
-  gutterWidth: '16px'
+  rowGutter: '16px'
 };
 
 /***/ }),
@@ -24945,23 +24949,28 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
 /* harmony import */ var reakit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! reakit */ "./node_modules/reakit/es/index.js");
+/* harmony import */ var _Config__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Config */ "./src/Config/index.ts");
 
 
 
+
+var grayscale = _Config__WEBPACK_IMPORTED_MODULE_3__["theme"].palette.grayscale,
+    spacing = _Config__WEBPACK_IMPORTED_MODULE_3__["theme"].spacing;
 var Stencil = function Stencil(props) {
-  var width = props.width,
-      height = props.height,
+  var height = props.height,
+      width = props.width,
       radius = props.radius;
+  var stencilStyles = {
+    width: width,
+    height: height,
+    marginBottom: "".concat(parseInt(spacing[0]) / 2, "px")
+  };
   var StencilElement = Object(styled_components__WEBPACK_IMPORTED_MODULE_1__["default"])(reakit__WEBPACK_IMPORTED_MODULE_2__["Flex"]).withConfig({
     displayName: "Stencil__StencilElement",
     componentId: "sc-1gu8bf6-0"
-  })(["animation:progress 1.2s ease-in-out infinite;background-color:#eee;background-image:linear-gradient(90deg,#eee,#f5f5f5,#eee);background-size:200px 100%;background-repeat:no-repeat;border-radius:4px;display:inline-block;line-height:16px;height:100%;width:100%;border-radius:", ";"], radius);
+  })(["animation:progress 1.2s ease-in-out infinite;background-color:", ";background-image:linear-gradient(90deg,", ",", ",", ");background-size:200px 100%;background-repeat:no-repeat;border-radius:", ";display:inline-block;line-height:", ";height:100%;width:100%;border-radius:", ";"], grayscale[5], grayscale[5], grayscale[6], grayscale[5], _Config__WEBPACK_IMPORTED_MODULE_3__["theme"].radius[0], spacing[1], radius);
   return react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("div", {
-    style: {
-      width: width,
-      height: height,
-      marginBottom: '4px'
-    }
+    style: stencilStyles
   }, react__WEBPACK_IMPORTED_MODULE_0__["createElement"](StencilElement, null));
 };
 Stencil.defaultProps = {

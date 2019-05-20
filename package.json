@@ -51,6 +51,7 @@
     "puppeteer": "^1.14.0",
     "react-testing-library": "^6.1.2",
     "redux-devtools-extension": "^2.13.7",
+    "standard-version": "^6.0.1",
     "ts-jest": "^24.0.2",
     "typescript": "^3.4.4",
     "webpack-dev-server": ">=3.1.11"
