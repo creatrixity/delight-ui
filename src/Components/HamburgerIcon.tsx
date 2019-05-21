@@ -26,7 +26,8 @@ type HamburgerMenuProps = transformValueTypes & {
   /** Radius size for the icon lines */
   borderRadius?: number,
   /** Duration for icon animations */
-  animationDuration?: number
+  animationDuration?: number,
+  className?: string
 }
 
 const defaultProps = {
@@ -103,7 +104,7 @@ export const HamburgerIcon:React.FC<HamburgerMenuProps> = (props) => {
   };
 
   return (
-    <div style={{ ...styles.container }} onClick={props.menuClicked}>
+    <div style={{ ...styles.container }} className={props.className} onClick={props.menuClicked}>
       <span style={{ ...styles.lineBase, ...styles.firstLine }} />
       <span style={{ ...styles.lineBase, ...styles.secondLine }} />
       <span style={{ ...styles.lineBase, ...styles.thirdLine }} />

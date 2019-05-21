@@ -25613,6 +25613,7 @@ var HamburgerIcon = function HamburgerIcon(props) {
   };
   return react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("div", {
     style: _objectSpread({}, styles.container),
+    className: props.className,
     onClick: props.menuClicked
   }, react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("span", {
     style: _objectSpread({}, styles.lineBase, styles.firstLine)

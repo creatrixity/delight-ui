@@ -11,10 +11,6 @@
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ],
-    "/stores": [
-      "static/runtime/webpack.js",
-      "static/runtime/main.js"
-    ],
     "/store": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
