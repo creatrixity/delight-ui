@@ -30,7 +30,7 @@ export const StoresFeedItemThumbnail:React.FC<StoresFeedItemThumbnailProps> = ({
     borderBottomLeftRadius: theme.radius[1],
     position: 'relative',
     minHeight: '82px',
-    backgroundColor: '#aaa',
+    backgroundColor: theme.palette.grayscale[4],
     zIndex: 10
   }
 

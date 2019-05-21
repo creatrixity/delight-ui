@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+import Link from 'next/link';
 import { Box, Heading } from 'reakit';
 import {
   Col,
@@ -11,7 +12,7 @@ import { IStorePage } from '@Interfaces/Pages/Store';
 
 import { StoresFeedItem } from './StoresFeedItem';
 import { StoresFeedItemSkeleton } from './StoresFeedItemAtoms';
-import { formatServiceHour } from '@Utilities';
+import { formatServiceHour, getStoreItemPath } from '@Utilities';
 
 type StoresFeedProps = {
   /** Displays stores loading animation */
@@ -25,6 +26,9 @@ const defaultProps = {
   stores: []
 }
 
+/** Pool of characters corresponding to one store item within listings */
+const RANGE_POOL = '12345';
+
 export const StoresFeed:React.FC<StoresFeedProps> = ({ stores, isFetchingStores }) => {
   return (
     <Box padding={`${theme.spacing[0]} 0`}>
@@ -36,11 +40,13 @@ export const StoresFeed:React.FC<StoresFeedProps> = ({ stores, isFetchingStores 
               margin={`${theme.spacing[1]} 0`}
               color={theme.palette.grayscale[2]}
               data-testid={'stores-screen-title'}
-            >Quick & Delightful.</Heading>
+            >
+              Quick & Delightful.
+            </Heading>
             {isFetchingStores && 
               <Box>
-                {Array.from('12345').map((item:any, key:number) => (
-                  <Box key={key} marginBottom={theme.spacing[1]}>
+                {Array.from(RANGE_POOL).map(() => (
+                  <Box key={arguments[1]} marginBottom={theme.spacing[1]}>
                     <StoresFeedItemSkeleton />
                   </Box>
                 ))}
@@ -59,15 +65,19 @@ export const StoresFeed:React.FC<StoresFeedProps> = ({ stores, isFetchingStores 
                 close_at,
                 verified_at
               }:IStorePage.IStoreData) => 
-                <Box key={id} marginBottom={'8px'}>
-                  <StoresFeedItem
-                    description={description}
-                    thumbnailImageSrc={`/static/img/${brand}`}
-                    title={name}
-                    serviceHours={`${formatServiceHour(open_at)} am - ${formatServiceHour(close_at)} pm`}
-                    serviceFee={`N${service_fee}`}
-                    isVerified={verified_at !== null}
-                  />
+                <Box key={id} marginBottom={theme.spacing[0]}>
+                  <Link href={getStoreItemPath(id, name)}>
+                    <a>
+                      <StoresFeedItem
+                        description={description}
+                        thumbnailImageSrc={`/static/img/${brand}`}
+                        title={name}
+                        serviceHours={`${formatServiceHour(open_at)} am - ${formatServiceHour(close_at)} pm`}
+                        serviceFee={`N${service_fee}`}
+                        isVerified={verified_at !== null}
+                      />
+                    </a>
+                  </Link>
                 </Box>
                 )}
               </>
