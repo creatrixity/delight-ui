@@ -20,13 +20,13 @@ type HamburgerMenuProps = transformValueTypes & {
   /** Icon height */
   height?: number,
   /** Stroke thickness for icon */
-  strokeWidth: number,
+  strokeWidth?: number,
   /** Fill color for the icon */
   color?: string,
   /** Radius size for the icon lines */
-  borderRadius: number,
+  borderRadius?: number,
   /** Duration for icon animations */
-  animationDuration: number
+  animationDuration?: number
 }
 
 const defaultProps = {
@@ -81,7 +81,13 @@ const getMedianLine = (animationDuration: number, isOpen:boolean, offsetTop:stri
 }
 
 export const HamburgerIcon:React.FC<HamburgerMenuProps> = (props) => {
-  let { animationDuration, borderRadius, color, isOpen, strokeWidth } = props
+  let {
+    animationDuration = defaultProps.animationDuration,
+    borderRadius = defaultProps.borderRadius,
+    color = defaultProps.color,
+    isOpen = defaultProps.isOpen,
+    strokeWidth = defaultProps.strokeWidth
+  } = props
 
   const width = `${props.width}px`,
     height = `${props.height}px`,

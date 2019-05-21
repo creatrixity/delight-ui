@@ -24626,11 +24626,16 @@ var getMedianLine = function getMedianLine(animationDuration, isOpen, offsetTop,
 };
 
 var HamburgerIcon = function HamburgerIcon(props) {
-  var animationDuration = props.animationDuration,
-      borderRadius = props.borderRadius,
-      color = props.color,
-      isOpen = props.isOpen,
-      strokeWidth = props.strokeWidth;
+  var _props$animationDurat = props.animationDuration,
+      animationDuration = _props$animationDurat === void 0 ? defaultProps.animationDuration : _props$animationDurat,
+      _props$borderRadius = props.borderRadius,
+      borderRadius = _props$borderRadius === void 0 ? defaultProps.borderRadius : _props$borderRadius,
+      _props$color = props.color,
+      color = _props$color === void 0 ? defaultProps.color : _props$color,
+      _props$isOpen = props.isOpen,
+      isOpen = _props$isOpen === void 0 ? defaultProps.isOpen : _props$isOpen,
+      _props$strokeWidth = props.strokeWidth,
+      strokeWidth = _props$strokeWidth === void 0 ? defaultProps.strokeWidth : _props$strokeWidth;
   var width = "".concat(props.width, "px"),
       height = "".concat(props.height, "px"),
       halfHeight = "".concat(parseInt(height) / 2, "px"),
