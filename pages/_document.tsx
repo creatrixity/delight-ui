@@ -20,7 +20,7 @@ export default class MyDocument extends Document {
 	}
 	
 	render() {
-		const { styleTags } = this.props;
+		const { styleTags } = this.props as any;
 		
 		return (
 			<html>

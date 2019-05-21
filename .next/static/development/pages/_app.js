@@ -25942,6 +25942,101 @@ Stencil.defaultProps = {
 
 /***/ }),
 
+/***/ "./src/Components/StoreMerchant/StoreMerchandiseFeed.tsx":
+/*!***************************************************************!*\
+  !*** ./src/Components/StoreMerchant/StoreMerchandiseFeed.tsx ***!
+  \***************************************************************/
+/*! exports provided: StoreMerchandiseFeed */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StoreMerchandiseFeed", function() { return StoreMerchandiseFeed; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var reakit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! reakit */ "./node_modules/reakit/es/index.js");
+/* harmony import */ var ___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./.. */ "./src/Components/index.ts");
+/* harmony import */ var _Config__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../Config */ "./src/Config/index.ts");
+function _objectDestructuringEmpty(obj) { if (obj == null) throw new TypeError("Cannot destructure undefined"); }
+
+
+
+
+
+
+/** Pool of characters corresponding to one store item within listings */
+var RANGE_POOL = '12345';
+var StoreMerchandiseFeed = function StoreMerchandiseFeed(_ref) {
+  _objectDestructuringEmpty(_ref);
+
+  return react__WEBPACK_IMPORTED_MODULE_0__["createElement"](reakit__WEBPACK_IMPORTED_MODULE_1__["Box"], {
+    padding: "".concat(_Config__WEBPACK_IMPORTED_MODULE_3__["theme"].spacing[0], " 0")
+  }, react__WEBPACK_IMPORTED_MODULE_0__["createElement"](___WEBPACK_IMPORTED_MODULE_2__["Grid"], null, react__WEBPACK_IMPORTED_MODULE_0__["createElement"](___WEBPACK_IMPORTED_MODULE_2__["Row"], null, react__WEBPACK_IMPORTED_MODULE_0__["createElement"](___WEBPACK_IMPORTED_MODULE_2__["Col"], null, react__WEBPACK_IMPORTED_MODULE_0__["createElement"](reakit__WEBPACK_IMPORTED_MODULE_1__["Heading"], {
+    use: "h3",
+    margin: "".concat(_Config__WEBPACK_IMPORTED_MODULE_3__["theme"].spacing[1], " 0"),
+    color: _Config__WEBPACK_IMPORTED_MODULE_3__["theme"].palette.grayscale[2],
+    "data-testid": 'store-merchandise-screen-title'
+  }, "Finger Lickin' Good.")))));
+};
+
+/***/ }),
+
+/***/ "./src/Components/StoreMerchant/StoreMerchantBrief.tsx":
+/*!*************************************************************!*\
+  !*** ./src/Components/StoreMerchant/StoreMerchantBrief.tsx ***!
+  \*************************************************************/
+/*! exports provided: StoreMerchantBrief */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StoreMerchantBrief", function() { return StoreMerchantBrief; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var reakit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! reakit */ "./node_modules/reakit/es/index.js");
+/* harmony import */ var ___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./.. */ "./src/Components/index.ts");
+/* harmony import */ var _Config__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../Config */ "./src/Config/index.ts");
+function _objectDestructuringEmpty(obj) { if (obj == null) throw new TypeError("Cannot destructure undefined"); }
+
+
+
+
+
+var StoreMerchantBrief = function StoreMerchantBrief(_ref) {
+  _objectDestructuringEmpty(_ref);
+
+  return react__WEBPACK_IMPORTED_MODULE_0__["createElement"](reakit__WEBPACK_IMPORTED_MODULE_1__["Box"], {
+    padding: "".concat(_Config__WEBPACK_IMPORTED_MODULE_3__["theme"].spacing[0], " 0")
+  }, react__WEBPACK_IMPORTED_MODULE_0__["createElement"](___WEBPACK_IMPORTED_MODULE_2__["Grid"], null, react__WEBPACK_IMPORTED_MODULE_0__["createElement"](___WEBPACK_IMPORTED_MODULE_2__["Row"], null, react__WEBPACK_IMPORTED_MODULE_0__["createElement"](___WEBPACK_IMPORTED_MODULE_2__["Col"], null, react__WEBPACK_IMPORTED_MODULE_0__["createElement"](reakit__WEBPACK_IMPORTED_MODULE_1__["Heading"], {
+    use: "h4",
+    margin: "".concat(_Config__WEBPACK_IMPORTED_MODULE_3__["theme"].spacing[1], " 0"),
+    color: _Config__WEBPACK_IMPORTED_MODULE_3__["theme"].palette.grayscale[2],
+    "data-testid": 'store-merchandise-screen-title'
+  }, "Kilimanjaro, Choba")))));
+};
+
+/***/ }),
+
+/***/ "./src/Components/StoreMerchant/index.tsx":
+/*!************************************************!*\
+  !*** ./src/Components/StoreMerchant/index.tsx ***!
+  \************************************************/
+/*! exports provided: StoreMerchandiseFeed, StoreMerchantBrief */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _StoreMerchandiseFeed__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./StoreMerchandiseFeed */ "./src/Components/StoreMerchant/StoreMerchandiseFeed.tsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "StoreMerchandiseFeed", function() { return _StoreMerchandiseFeed__WEBPACK_IMPORTED_MODULE_0__["StoreMerchandiseFeed"]; });
+
+/* harmony import */ var _StoreMerchantBrief__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./StoreMerchantBrief */ "./src/Components/StoreMerchant/StoreMerchantBrief.tsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "StoreMerchantBrief", function() { return _StoreMerchantBrief__WEBPACK_IMPORTED_MODULE_1__["StoreMerchantBrief"]; });
+
+
+
+
+/***/ }),
+
 /***/ "./src/Components/StoresFeed/StoresFeed.tsx":
 /*!**************************************************!*\
   !*** ./src/Components/StoresFeed/StoresFeed.tsx ***!
@@ -26275,7 +26370,7 @@ var VerificationMark = function VerificationMark() {
 /*!*********************************!*\
   !*** ./src/Components/index.ts ***!
   \*********************************/
-/*! exports provided: AppBase, Badge, Col, DockerBar, Icon, HamburgerIcon, RootComponent, Row, Grid, Navbar, SearchBar, StoresFeed, Stencil, VerificationMark */
+/*! exports provided: AppBase, Badge, Col, DockerBar, Icon, HamburgerIcon, RootComponent, Row, Grid, Navbar, SearchBar, StoresFeed, StoreMerchandiseFeed, StoreMerchantBrief, Stencil, VerificationMark */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -26316,11 +26411,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _StoresFeed__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./StoresFeed */ "./src/Components/StoresFeed/index.tsx");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "StoresFeed", function() { return _StoresFeed__WEBPACK_IMPORTED_MODULE_11__["StoresFeed"]; });
 
-/* harmony import */ var _Stencil__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./Stencil */ "./src/Components/Stencil.tsx");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Stencil", function() { return _Stencil__WEBPACK_IMPORTED_MODULE_12__["Stencil"]; });
+/* harmony import */ var _StoreMerchant__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./StoreMerchant */ "./src/Components/StoreMerchant/index.tsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "StoreMerchandiseFeed", function() { return _StoreMerchant__WEBPACK_IMPORTED_MODULE_12__["StoreMerchandiseFeed"]; });
 
-/* harmony import */ var _VerificationMark__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./VerificationMark */ "./src/Components/VerificationMark.tsx");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "VerificationMark", function() { return _VerificationMark__WEBPACK_IMPORTED_MODULE_13__["VerificationMark"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "StoreMerchantBrief", function() { return _StoreMerchant__WEBPACK_IMPORTED_MODULE_12__["StoreMerchantBrief"]; });
+
+/* harmony import */ var _Stencil__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./Stencil */ "./src/Components/Stencil.tsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Stencil", function() { return _Stencil__WEBPACK_IMPORTED_MODULE_13__["Stencil"]; });
+
+/* harmony import */ var _VerificationMark__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./VerificationMark */ "./src/Components/VerificationMark.tsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "VerificationMark", function() { return _VerificationMark__WEBPACK_IMPORTED_MODULE_14__["VerificationMark"]; });
+
 
 
 

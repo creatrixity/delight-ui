@@ -4,10 +4,10 @@ import { bindActionCreators, Dispatch } from 'redux';
 
 import Head from 'next/head'
 
-import { StoresFeed } from '@Components';
 import { IStorePage, IStore } from '@Interfaces';
 import { StoreActions } from '@Store/Store/actions';
-import { getStores, getIsFetchingStores } from '@Store/Store/selectors';
+import { getStores } from '@Store/Store/selectors';
+import { StoreMerchantBrief, StoreMerchandiseFeed } from '@Components';
 
 export class StoreItemPage extends React.Component<IStorePage.IProps, IStorePage.IState> {
 	componentDidMount() {}
@@ -18,6 +18,8 @@ export class StoreItemPage extends React.Component<IStorePage.IProps, IStorePage
 				<Head>
 					<title>Deliveries from Kilimanjaro, Choba on Instachaw</title>
 				</Head>
+				<StoreMerchantBrief />
+				<StoreMerchandiseFeed />
 			</>
 		);
 	}
