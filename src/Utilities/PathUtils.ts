@@ -58,5 +58,5 @@ export const getIconsPath = ({ name, legacy }: getIconsPathArgs) => {
  * @return {string}
  */
 export function getStoreItemPath(id: number, title: string) {
-  return `/stores/${slugify(title)}-${id}`
+  return `/store/${slugify(title)}-${id}`
 }

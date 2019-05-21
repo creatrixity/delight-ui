@@ -45,8 +45,8 @@ export const StoresFeed:React.FC<StoresFeedProps> = ({ stores, isFetchingStores 
             </Heading>
             {isFetchingStores && 
               <Box>
-                {Array.from(RANGE_POOL).map(() => (
-                  <Box key={arguments[1]} marginBottom={theme.spacing[1]}>
+                {Array.from(RANGE_POOL).map((poolPick:string) => (
+                  <Box key={poolPick} marginBottom={theme.spacing[1]}>
                     <StoresFeedItemSkeleton />
                   </Box>
                 ))}

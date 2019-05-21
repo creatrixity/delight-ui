@@ -25961,7 +25961,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _StoresFeedItem__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./StoresFeedItem */ "./src/Components/StoresFeed/StoresFeedItem.tsx");
 /* harmony import */ var _StoresFeedItemAtoms__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./StoresFeedItemAtoms */ "./src/Components/StoresFeed/StoresFeedItemAtoms.tsx");
 /* harmony import */ var _Utilities__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../Utilities */ "./src/Utilities/index.ts");
-var _arguments = arguments;
 
 
 
@@ -25987,9 +25986,9 @@ var StoresFeed = function StoresFeed(_ref) {
     margin: "".concat(_Config__WEBPACK_IMPORTED_MODULE_4__["theme"].spacing[1], " 0"),
     color: _Config__WEBPACK_IMPORTED_MODULE_4__["theme"].palette.grayscale[2],
     "data-testid": 'stores-screen-title'
-  }, "Quick & Delightful."), isFetchingStores && react__WEBPACK_IMPORTED_MODULE_0__["createElement"](reakit__WEBPACK_IMPORTED_MODULE_2__["Box"], null, Array.from(RANGE_POOL).map(function () {
+  }, "Quick & Delightful."), isFetchingStores && react__WEBPACK_IMPORTED_MODULE_0__["createElement"](reakit__WEBPACK_IMPORTED_MODULE_2__["Box"], null, Array.from(RANGE_POOL).map(function (poolPick) {
     return react__WEBPACK_IMPORTED_MODULE_0__["createElement"](reakit__WEBPACK_IMPORTED_MODULE_2__["Box"], {
-      key: _arguments[1],
+      key: poolPick,
       marginBottom: _Config__WEBPACK_IMPORTED_MODULE_4__["theme"].spacing[1]
     }, react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_StoresFeedItemAtoms__WEBPACK_IMPORTED_MODULE_6__["StoresFeedItemSkeleton"], null));
   })), stores.length > 0 && !isFetchingStores && react__WEBPACK_IMPORTED_MODULE_0__["createElement"](react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, stores.map(function (_ref2) {
@@ -27156,7 +27155,7 @@ var getIconsPath = function getIconsPath(_ref) {
  */
 
 function getStoreItemPath(id, title) {
-  return "/stores/".concat(Object(_StringUtils__WEBPACK_IMPORTED_MODULE_0__["slugify"])(title), "-").concat(id);
+  return "/store/".concat(Object(_StringUtils__WEBPACK_IMPORTED_MODULE_0__["slugify"])(title), "-").concat(id);
 }
 
 /***/ }),
