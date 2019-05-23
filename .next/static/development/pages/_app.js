@@ -18271,7 +18271,6 @@ var absolutePosition = 'absolute';
 var defaultProps = {
   width: 24,
   height: 8,
-  isOpen: false,
   strokeWidth: 2,
   animationDuration: 6,
   rotate: 0,
@@ -18286,7 +18285,7 @@ var getTransformValue = function getTransformValue(isOpen, defaultPos, rotate, h
   return "translate3d(0,".concat(height, ",0) rotate(").concat(rotationDegree, ")");
 };
 
-var getLineBase = function getLineBase(animationDuration, borderRadius, color, strokeWidth, marginTop) {
+var getLineBase = function getLineBase(borderRadius, color, strokeWidth, marginTop) {
   return {
     display: 'block',
     height: "".concat(strokeWidth, "px"),
@@ -18295,17 +18294,6 @@ var getLineBase = function getLineBase(animationDuration, borderRadius, color, s
     borderRadius: "".concat(borderRadius, "px"),
     transformOrigin: 'center',
     position: absolutePosition,
-    marginTop: marginTop
-  };
-};
-
-var getMedianLine = function getMedianLine(animationDuration, isOpen, offsetTop, marginTop) {
-  return {
-    transitionTimingFunction: 'ease-out',
-    transitionDuration: "".concat(animationDuration / 4, "s"),
-    opacity: isOpen ? 0 : 1,
-    transform: isOpen ? 'translateX(500px)' : 'translateX(0)',
-    top: offsetTop,
     marginTop: marginTop
   };
 };
@@ -18344,8 +18332,6 @@ function (_React$PureComponent) {
     key: "render",
     value: function render() {
       var _this$props = this.props,
-          _this$props$animation = _this$props.animationDuration,
-          animationDuration = _this$props$animation === void 0 ? defaultProps.animationDuration : _this$props$animation,
           _this$props$borderRad = _this$props.borderRadius,
           borderRadius = _this$props$borderRad === void 0 ? defaultProps.borderRadius : _this$props$borderRad,
           _this$props$color = _this$props.color,
@@ -18363,7 +18349,7 @@ function (_React$PureComponent) {
           height: height,
           position: relativePosition
         },
-        lineBase: getLineBase(animationDuration, borderRadius, color || '#000', strokeWidth, halfStrokeWidth),
+        lineBase: getLineBase(borderRadius, color || '#000', strokeWidth, halfStrokeWidth),
         firstLine: {
           transform: getTransformValue(isOpen, 0, 45, halfHeight)
         },
@@ -18486,19 +18472,32 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
 
 
+
+var NavbarItem = function NavbarItem(_ref) {
+  var children = _ref.children,
+      _ref$span = _ref.span,
+      span = _ref$span === void 0 ? 2 : _ref$span;
+  return react__WEBPACK_IMPORTED_MODULE_0__["createElement"](___WEBPACK_IMPORTED_MODULE_3__["Col"], {
+    sm: span,
+    gutterWidth: 0,
+    style: {
+      alignItems: 'center',
+      justifyContent: 'center'
+    }
+  }, react__WEBPACK_IMPORTED_MODULE_0__["createElement"](rebass__WEBPACK_IMPORTED_MODULE_1__["Flex"], null, children));
+};
 
 var Navbar =
 /*#__PURE__*/
@@ -18506,55 +18505,29 @@ function (_React$Component) {
   _inherits(Navbar, _React$Component);
 
   function Navbar(props) {
-    var _this;
-
     _classCallCheck(this, Navbar);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(Navbar).call(this, props));
-
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {
-      isMenuOpen: false
-    });
-
-    return _this;
+    return _possibleConstructorReturn(this, _getPrototypeOf(Navbar).call(this, props));
   }
 
   _createClass(Navbar, [{
     key: "render",
     value: function render() {
-      var isMenuOpen = this.state.isMenuOpen;
       var primary = _Config__WEBPACK_IMPORTED_MODULE_2__["theme"].palette.primary;
       var brand = primary[3];
       var brandLightest = primary[6];
-      console.log('Rendering Navbar');
       return react__WEBPACK_IMPORTED_MODULE_0__["createElement"](rebass__WEBPACK_IMPORTED_MODULE_1__["Box"], {
         bg: brand,
         py: 1
-      }, react__WEBPACK_IMPORTED_MODULE_0__["createElement"](___WEBPACK_IMPORTED_MODULE_3__["Grid"], null, react__WEBPACK_IMPORTED_MODULE_0__["createElement"](___WEBPACK_IMPORTED_MODULE_3__["Row"], null, react__WEBPACK_IMPORTED_MODULE_0__["createElement"](___WEBPACK_IMPORTED_MODULE_3__["Col"], {
-        sm: 2,
-        gutterWidth: 0
-      }, react__WEBPACK_IMPORTED_MODULE_0__["createElement"](___WEBPACK_IMPORTED_MODULE_3__["Icon"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0__["createElement"](___WEBPACK_IMPORTED_MODULE_3__["Grid"], null, react__WEBPACK_IMPORTED_MODULE_0__["createElement"](___WEBPACK_IMPORTED_MODULE_3__["Row"], null, react__WEBPACK_IMPORTED_MODULE_0__["createElement"](NavbarItem, null, react__WEBPACK_IMPORTED_MODULE_0__["createElement"](___WEBPACK_IMPORTED_MODULE_3__["Icon"], {
         size: 32,
         name: 'instachaw',
         fill: brandLightest
-      })), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](___WEBPACK_IMPORTED_MODULE_3__["Col"], {
-        sm: 8,
-        gutterWidth: 0
-      }, react__WEBPACK_IMPORTED_MODULE_0__["createElement"](___WEBPACK_IMPORTED_MODULE_3__["SearchBar"], null)), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](___WEBPACK_IMPORTED_MODULE_3__["Col"], {
-        sm: 2,
-        gutterWidth: 0,
-        style: {
-          alignItems: 'center',
-          justifyContent: 'center'
-        }
-      }, react__WEBPACK_IMPORTED_MODULE_0__["createElement"](rebass__WEBPACK_IMPORTED_MODULE_1__["Flex"], {
-        flexDirection: 'row',
-        justifyContent: 'center',
-        onClick: this.handleMenuToggleClick
-      }, react__WEBPACK_IMPORTED_MODULE_0__["createElement"](___WEBPACK_IMPORTED_MODULE_3__["HamburgerIcon"], {
-        color: brandLightest,
-        isOpen: isMenuOpen || false
-      }))))));
+      })), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](NavbarItem, {
+        span: 8
+      }, react__WEBPACK_IMPORTED_MODULE_0__["createElement"](___WEBPACK_IMPORTED_MODULE_3__["SearchBar"], null)), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](NavbarItem, null, react__WEBPACK_IMPORTED_MODULE_0__["createElement"](___WEBPACK_IMPORTED_MODULE_3__["HamburgerIcon"], {
+        color: brandLightest
+      })))));
     }
   }]);
 
@@ -18675,7 +18648,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var space = _Config__WEBPACK_IMPORTED_MODULE_2__["theme"].space,
-    radius = _Config__WEBPACK_IMPORTED_MODULE_2__["theme"].radius;
+    radius = _Config__WEBPACK_IMPORTED_MODULE_2__["theme"].radius,
+    palette = _Config__WEBPACK_IMPORTED_MODULE_2__["theme"].palette;
 var searchBarHeight = space[3];
 var searchBarPaddingHorizontal = space[3];
 var searchBarIconSize = parseInt(space[2], 10);
@@ -18687,7 +18661,7 @@ var SearchBarAddon = Object(styled_components__WEBPACK_IMPORTED_MODULE_0__["defa
 var SearchBarInput = Object(styled_components__WEBPACK_IMPORTED_MODULE_0__["default"])('input').withConfig({
   displayName: "SearchBarAtoms__SearchBarInput",
   componentId: "piriy8-1"
-})(["background:#fff;border-color:#fff;height:", ";box-shadow:0 0 0 1px #eee;border-radius:", ";padding-left:", "px;:focus{border-color:#333;box-shadow:0 0 0 2px #eee;}::placeholder{color:#ccc;}"], searchBarHeight, radius[2], searchBarAddonWidth);
+})(["background:#fff;border-color:#fff;height:", ";border-radius:", ";padding-left:", "px;--webkit-appearance:none;outline:none;border-width:0;:focus{box-shadow:0 0 0 1px ", ";background:", ";outline:none;}::placeholder{color:#ccc;}"], searchBarHeight, radius[2], searchBarAddonWidth, palette.grayscale[5], palette.grayscale[6]);
 var SearchBarWrapper = Object(styled_components__WEBPACK_IMPORTED_MODULE_0__["default"])(rebass__WEBPACK_IMPORTED_MODULE_1__["Flex"]).withConfig({
   displayName: "SearchBarAtoms__SearchBarWrapper",
   componentId: "piriy8-2"

@@ -4,15 +4,11 @@ const relativePosition:'relative' = 'relative';
 const absolutePosition:'absolute' = 'absolute';
 
 type transformValueTypes = {
-  /** Sets the icon as open. */
-  isOpen: boolean,
   /** Number of degrees the icon should rotate by. */
   rotate?: number
 }
 
 type HamburgerMenuProps = transformValueTypes & {
-  /** Renders the open state of the icon */
-  isOpen?: boolean,
   /** Icon width */
   width?: number,
   /** Icon height */
@@ -35,7 +31,6 @@ type HamburgerMenuState = {
 const defaultProps = {
   width: 24,
   height: 8,
-  isOpen: false,
   strokeWidth: 2,
   animationDuration: 6,
   rotate: 0,
@@ -52,7 +47,6 @@ const getTransformValue = (isOpen:any, defaultPos:any, rotate:any, halfHeight:an
 }
 
 const getLineBase = (
-  animationDuration:number,
   borderRadius: number,
   color:string,
   strokeWidth: number,
@@ -66,17 +60,6 @@ const getLineBase = (
     borderRadius: `${borderRadius}px`,
     transformOrigin: 'center',
     position: absolutePosition,
-    marginTop
-  }
-}
-
-const getMedianLine = (animationDuration: number, isOpen:boolean, offsetTop:string, marginTop: string) => {
-  return {
-    transitionTimingFunction: 'ease-out',
-    transitionDuration: `${animationDuration / 4}s`,
-    opacity: isOpen ? 0 : 1,
-    transform: isOpen ? 'translateX(500px)' : 'translateX(0)',
-    top: offsetTop,
     marginTop
   }
 }
@@ -101,7 +84,6 @@ export class HamburgerIcon extends React.PureComponent<HamburgerMenuProps, Hambu
 
   render() {
     let {
-      animationDuration = defaultProps.animationDuration,
       borderRadius = defaultProps.borderRadius,
       color = defaultProps.color,
       strokeWidth = defaultProps.strokeWidth
@@ -116,7 +98,7 @@ export class HamburgerIcon extends React.PureComponent<HamburgerMenuProps, Hambu
   
     const styles = {
       container: { width, height, position: relativePosition },
-      lineBase: getLineBase(animationDuration, borderRadius, color || '#000', strokeWidth, halfStrokeWidth),
+      lineBase: getLineBase(borderRadius, color || '#000', strokeWidth, halfStrokeWidth),
       firstLine: { transform: getTransformValue(isOpen, 0, 45, halfHeight) },
       thirdLine: {transform: getTransformValue(isOpen, height, -45, halfHeight)}
     };

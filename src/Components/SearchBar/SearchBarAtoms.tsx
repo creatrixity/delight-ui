@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Flex } from 'rebass';
 import { theme } from '@Config';
 
-const { space, radius } = theme;
+const { space, radius, palette } = theme;
 
 const searchBarHeight:string = space[3];
 const searchBarPaddingHorizontal:string = space[3];
@@ -23,14 +23,18 @@ export const SearchBarInput = styled('input')`
     background: #fff;
     border-color: #fff;
     height: ${searchBarHeight};
-    box-shadow: 0 0 0 1px #eee;
     border-radius: ${radius[2]};
     padding-left: ${searchBarAddonWidth}px;
+    --webkit-appearance: none;
+    outline: none;
+    border-width: 0;
 
     :focus {
-      border-color: #333;
-      box-shadow: 0 0 0 2px #eee;
+      box-shadow: 0 0 0 1px ${palette.grayscale[5]};
+      background: ${palette.grayscale[6]};
+      outline: none;
     }
+    
     ::placeholder {
       color: #ccc;
     }  
