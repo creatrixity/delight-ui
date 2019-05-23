@@ -1,6 +1,5 @@
 import * as React from 'react';
 
-import Link from 'next/link';
 import { Box, Heading } from 'rebass';
 import {
   Col,
@@ -12,7 +11,7 @@ import { IStorePage } from '@Interfaces/Pages/Store';
 
 import { StoresFeedItem } from './StoresFeedItem';
 import { StoresFeedItemSkeleton } from './StoresFeedItemAtoms';
-import { formatServiceHour, getStoreItemPath } from '@Utilities';
+import { formatServiceHour } from '@Utilities';
 
 type StoresFeedProps = {
   /** Displays stores loading animation */
@@ -65,16 +64,15 @@ export const StoresFeed:React.FC<StoresFeedProps> = ({ stores, isFetchingStores 
                 verified_at
               }:IStorePage.IStoreData) => 
                 <Box key={id} marginBottom={theme.space[0]}>
-                  <Link href={getStoreItemPath(id, name)}>
-                    <StoresFeedItem
-                      description={description}
-                      thumbnailImageSrc={`/static/img/${brand}`}
-                      title={name}
-                      serviceHours={`${formatServiceHour(open_at)} am - ${formatServiceHour(close_at)} pm`}
-                      serviceFee={`N${service_fee}`}
-                      isVerified={verified_at !== null}
-                    />
-                  </Link>
+                  <StoresFeedItem
+                    description={description}
+                    id={id}
+                    thumbnailImageSrc={`/static/img/${brand}`}
+                    title={name}
+                    serviceHours={`${formatServiceHour(open_at)} am - ${formatServiceHour(close_at)} pm`}
+                    serviceFee={`N${service_fee}`}
+                    isVerified={verified_at !== null}
+                  />
                 </Box>
                 )}
               </>

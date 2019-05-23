@@ -25,11 +25,8 @@ type StoresFeedItemThumbnailProps = {
 export const StoresFeedItemThumbnail:React.FC<StoresFeedItemThumbnailProps> = ({ src, width }) => {
   let storesFeedThumbnailStyles:React.CSSProperties = {
     width,
-    borderTopLeftRadius: theme.radius[1],
-    borderBottomLeftRadius: theme.radius[1],
     position: 'relative',
     minHeight: '82px',
-    backgroundColor: theme.palette.grayscale[4],
     zIndex: 10
   }
 
