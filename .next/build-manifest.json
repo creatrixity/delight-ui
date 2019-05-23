@@ -14,10 +14,6 @@
     "/stores": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
-    ],
-    "/home": [
-      "static/runtime/webpack.js",
-      "static/runtime/main.js"
     ]
   }
 }
