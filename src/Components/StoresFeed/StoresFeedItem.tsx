@@ -2,7 +2,6 @@
 
 import * as React from 'react';
 
-import Link from 'next/link';
 import {
   Box,
   Card,
@@ -10,11 +9,11 @@ import {
 } from 'rebass';
 
 import { theme } from '@Config';
-import { getStoreItemPath } from '@Utilities';
 
 import {
   StoresFeedItemDescription,
   StoresFeedItemFooter,
+  StoresFeedItemLink,
   StoresFeedItemThumbnail
 } from './StoresFeedItemAtoms';
 
@@ -51,25 +50,34 @@ export const StoresFeedItem:React.FC<StoresFeedItemProps> = ({
     <Box data-testid={'stores-feed-item'}>
       <Card backgroundColor={'#fff'} boxShadow={theme.shadows[0]} borderRadius={theme.radius[1]}>
         <Flex margin={'0'} width={1}>
-          <Link href={getStoreItemPath(id, name)}>
-            <a
-              style={{
-                width: thumbnailWidth,
-                display: 'flex',
-                backgroundColor: theme.palette.grayscale[4]
-              }}
-            >
-              <StoresFeedItemThumbnail
-                width={'100%'}
-                src={thumbnailImageSrc}
-              />
-            </a>
-          </Link>
+          <StoresFeedItemLink
+            id={id}
+            name={title}
+            style={{
+              width: thumbnailWidth,
+              display: 'flex',
+              backgroundColor: theme.palette.grayscale[4]
+            }}
+          >
+            <StoresFeedItemThumbnail
+              width={'100%'}
+              src={thumbnailImageSrc}
+            />
+          </StoresFeedItemLink>
 
           <Box width={contentWidth}>
             <StoresFeedItemDescription
               storeDescription={description}
-              storeTitle={title}
+              storeTitle={
+                <StoresFeedItemLink
+                  id={id}
+                  name={title}
+                  style={{
+                    textDecoration: 'none',
+                    color: theme.palette.grayscale[1]
+                  }}
+                >{title}</StoresFeedItemLink>
+              }
               storeIsVerified={isVerified}
             />
 

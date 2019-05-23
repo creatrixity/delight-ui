@@ -14,11 +14,12 @@ type StencilProps = {
   /** Height of stencil line */
   height?: string,
   /** Width of stencil line */
-  width?: string
+  width?: string,
+  style?: React.CSSProperties
 };
 
 export const Stencil:React.FC<StencilProps> = (props) => {
-  const { height, width, radius } = props;
+  const { height, width, radius, style } = props;
   const stencilStyles = { width, height, marginBottom: `${parseInt(space[0]) / 2}px` }
 
   const StencilElement = styled(Flex)`
@@ -35,7 +36,7 @@ export const Stencil:React.FC<StencilProps> = (props) => {
     border-radius: ${radius};
   `;
 
-  return <div style={stencilStyles}><StencilElement /></div>
+  return <div style={{ ...stencilStyles, ...style }}><StencilElement /></div>
 }
 
 Stencil.defaultProps = {

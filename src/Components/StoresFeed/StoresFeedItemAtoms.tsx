@@ -2,6 +2,7 @@
 
 import * as React from 'react';
 
+import Link from 'next/link';
 import {
   Box,
   Card,
@@ -12,6 +13,7 @@ import {
 
 import { theme } from '@Config';
 import { Badge, VerificationMark, Stencil } from '@Components';
+import { getStoreItemPath } from '@Utilities';
 
 const { space } = theme;
 
@@ -21,6 +23,20 @@ type StoresFeedItemThumbnailProps = {
   /** Thumbnail width */
   width?: string
 };
+
+type StoresFeedItemLinkProps = {
+  style?: React.CSSProperties,
+  id: number,
+  name: string
+};
+
+export const StoresFeedItemLink:React.FC<StoresFeedItemLinkProps> = ({ children, style, id, name }) => {
+  return (
+    <Link href={getStoreItemPath(id, name)}>
+      <a style={{ display: 'flex', ...style }}>{children}</a>
+    </Link>
+  )
+}
 
 export const StoresFeedItemThumbnail:React.FC<StoresFeedItemThumbnailProps> = ({ src, width }) => {
   let storesFeedThumbnailStyles:React.CSSProperties = {
@@ -48,7 +64,7 @@ export const StoresFeedItemThumbnail:React.FC<StoresFeedItemThumbnailProps> = ({
 
 type StoresFeedItemDescriptionProps = {
   /** Store name */
-  storeTitle: string,
+  storeTitle: React.ReactNode,
   /** Description for store */
   storeDescription: string,
   /** Renders <VerificationMark /> component */
@@ -68,7 +84,7 @@ export const StoresFeedItemDescription:React.FC<StoresFeedItemDescriptionProps> 
         color={theme.palette.grayscale[1]}
         mb={space[0]}
       >
-        <a>{storeTitle}</a>
+        {storeTitle}
       </Heading>
       { storeIsVerified && <VerificationMark /> }
     </Flex>
@@ -121,12 +137,17 @@ export const StoresFeedItemSkeleton:React.FC = ({}) => (
   <Box data-testid={'stores-feed-item'}>
     <Card>
       <Flex margin={0} width={'100%'}>
-        <StoresFeedItemThumbnail width={'30%'} />
+        <Stencil
+          width={'30%'}
+          style={{
+            marginTop: '8px',
+            height: '82px'
+          }}
+        />
         <Flex width={'70%'} flexDirection={'column'} alignItems={'center'} padding={`12px`}>
           <Flex
             alignItems={'center'}
             width={'100%'}
-            bg={'#fff'}
             justifyContent={'space-between'}
             marginBottom={space[0]}
           >
