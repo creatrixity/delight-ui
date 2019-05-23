@@ -19,13 +19,12 @@ type StoresFeedItemThumbnailProps = {
   /** Item thumbnail source file path */
   src?: string,
   /** Thumbnail width */
-  width: string
+  width?: string
 };
 
 export const StoresFeedItemThumbnail:React.FC<StoresFeedItemThumbnailProps> = ({ src, width }) => {
   let storesFeedThumbnailStyles:React.CSSProperties = {
     width,
-    flex: 1,
     borderTopLeftRadius: theme.radius[1],
     borderBottomLeftRadius: theme.radius[1],
     position: 'relative',
@@ -56,23 +55,24 @@ type StoresFeedItemDescriptionProps = {
   /** Description for store */
   storeDescription: string,
   /** Renders <VerificationMark /> component */
-  storeIsVerified?: boolean
+  storeIsVerified?: boolean,
 }
 
 export const StoresFeedItemDescription:React.FC<StoresFeedItemDescriptionProps> = ({
   storeDescription,
   storeTitle,
-  storeIsVerified
+  storeIsVerified,
 }) => (
-  <Box style={{ padding: `0 ${space[1]} ${space[1]} ${space[1]}` }}>
+  <Box width={1} style={{ padding: `0 ${space[1]} ${space[1]} ${space[1]}` }}>
     <Flex alignItems={'center'}>
       <Heading
-        style={{
-          flex: 1,
-          color: theme.palette.grayscale[1]
-        }}>
-          <a>{storeTitle}</a>
-        </Heading>
+        fontSize={3}
+        flex={1}
+        color={theme.palette.grayscale[1]}
+        mb={space[0]}
+      >
+        <a>{storeTitle}</a>
+      </Heading>
       { storeIsVerified && <VerificationMark /> }
     </Flex>
 
@@ -80,6 +80,8 @@ export const StoresFeedItemDescription:React.FC<StoresFeedItemDescriptionProps> 
       fontSize={theme.fontSizes[1]}
       lineHeight={space[1]}
       color={theme.palette.grayscale[2]}
+      paddingLeft={space[0]}
+      width={'95%'}
     >
       {storeDescription}
     </Text>
@@ -90,24 +92,22 @@ type StoresFeedItemFooterProps = {
   /** Store service hours */
   storeHours: string
   /** Store service fees */
-  storeServiceFee: string
+  storeServiceFee: string,
 }
 
 export const StoresFeedItemFooter:React.FC<StoresFeedItemFooterProps> = ({
   storeHours,
-  storeServiceFee
+  storeServiceFee,
 }) => (
   <Flex
-    margin={0}
-    width={'100%'}
-    padding={`${space[0]} ${space[1]}`}
+    width={'97%'}
+    padding={`0 ${space[0]} 0 ${space[2]}`}
     bg={theme.palette.grayscale[6]}
     justifyContent={'space-between'}
     alignItems={'center'}
   >
     <Text
       fontSize={theme.fontSizes[0]}
-      margin={0}
       fontWeight={600}
       color={theme.palette.grayscale[3]}
     >

@@ -18051,14 +18051,16 @@ var Badge = function Badge(_ref) {
       text = _ref.text;
   return react__WEBPACK_IMPORTED_MODULE_0__["createElement"](rebass__WEBPACK_IMPORTED_MODULE_1__["Flex"], {
     alignItems: 'center',
-    background: background,
-    borderRadius: _Config__WEBPACK_IMPORTED_MODULE_2__["theme"].radius[3],
+    backgroundColor: background,
+    style: {
+      borderRadius: _Config__WEBPACK_IMPORTED_MODULE_2__["theme"].radius[3],
+      fontWeight: 600,
+      textTransform: 'uppercase'
+    },
     color: color,
     fontSize: _Config__WEBPACK_IMPORTED_MODULE_2__["theme"].fontSizes[0],
-    fontWeight: '600',
     margin: 0,
-    padding: "".concat(parseInt(_Config__WEBPACK_IMPORTED_MODULE_2__["theme"].space[0]) / 2, "px ").concat(_Config__WEBPACK_IMPORTED_MODULE_2__["theme"].space[0]),
-    textTransform: 'uppercase'
+    padding: "".concat(parseInt(_Config__WEBPACK_IMPORTED_MODULE_2__["theme"].space[0]) / 2, "px ").concat(_Config__WEBPACK_IMPORTED_MODULE_2__["theme"].space[0])
   }, icon && react__WEBPACK_IMPORTED_MODULE_0__["createElement"](___WEBPACK_IMPORTED_MODULE_3__["Icon"], {
     name: icon,
     size: _Config__WEBPACK_IMPORTED_MODULE_2__["theme"].space[1]
@@ -18921,13 +18923,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var rebass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rebass */ "./node_modules/rebass/dist/index.js");
 /* harmony import */ var rebass__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(rebass__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _StoresFeedItemAtoms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./StoresFeedItemAtoms */ "./src/Components/StoresFeed/StoresFeedItemAtoms.tsx");
+/* harmony import */ var _Config__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Config */ "./src/Config/index.ts");
+/* harmony import */ var _StoresFeedItemAtoms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./StoresFeedItemAtoms */ "./src/Components/StoresFeed/StoresFeedItemAtoms.tsx");
 
 
 
 
 
-var thumbnailWidth = '30%';
+
+var thumbnailWidth = '25%';
 var contentWidth = "".concat(100 - parseInt(thumbnailWidth), "%");
 var StoresFeedItem = function StoresFeedItem(_ref) {
   var description = _ref.description,
@@ -18938,21 +18942,23 @@ var StoresFeedItem = function StoresFeedItem(_ref) {
       thumbnailImageSrc = _ref.thumbnailImageSrc;
   return react__WEBPACK_IMPORTED_MODULE_0__["createElement"](rebass__WEBPACK_IMPORTED_MODULE_1__["Box"], {
     "data-testid": 'stores-feed-item'
-  }, react__WEBPACK_IMPORTED_MODULE_0__["createElement"](rebass__WEBPACK_IMPORTED_MODULE_1__["Card"], null, react__WEBPACK_IMPORTED_MODULE_0__["createElement"](rebass__WEBPACK_IMPORTED_MODULE_1__["Flex"], {
-    margin: 0,
-    width: '100%'
-  }, react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_StoresFeedItemAtoms__WEBPACK_IMPORTED_MODULE_2__["StoresFeedItemThumbnail"], {
+  }, react__WEBPACK_IMPORTED_MODULE_0__["createElement"](rebass__WEBPACK_IMPORTED_MODULE_1__["Card"], {
+    backgroundColor: '#fff',
+    boxShadow: _Config__WEBPACK_IMPORTED_MODULE_2__["theme"].shadows[0],
+    borderRadius: _Config__WEBPACK_IMPORTED_MODULE_2__["theme"].radius[1]
+  }, react__WEBPACK_IMPORTED_MODULE_0__["createElement"](rebass__WEBPACK_IMPORTED_MODULE_1__["Flex"], {
+    margin: '0',
+    width: 1
+  }, react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_StoresFeedItemAtoms__WEBPACK_IMPORTED_MODULE_3__["StoresFeedItemThumbnail"], {
     width: thumbnailWidth,
     src: thumbnailImageSrc
   }), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](rebass__WEBPACK_IMPORTED_MODULE_1__["Box"], {
-    style: {
-      width: contentWidth
-    }
-  }, react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_StoresFeedItemAtoms__WEBPACK_IMPORTED_MODULE_2__["StoresFeedItemDescription"], {
+    width: contentWidth
+  }, react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_StoresFeedItemAtoms__WEBPACK_IMPORTED_MODULE_3__["StoresFeedItemDescription"], {
     storeDescription: description,
     storeTitle: title,
     storeIsVerified: isVerified
-  }), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_StoresFeedItemAtoms__WEBPACK_IMPORTED_MODULE_2__["StoresFeedItemFooter"], {
+  }), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_StoresFeedItemAtoms__WEBPACK_IMPORTED_MODULE_3__["StoresFeedItemFooter"], {
     storeHours: serviceHours,
     storeServiceFee: serviceFee
   })))));
@@ -18997,7 +19003,6 @@ var StoresFeedItemThumbnail = function StoresFeedItemThumbnail(_ref) {
       width = _ref.width;
   var storesFeedThumbnailStyles = {
     width: width,
-    flex: 1,
     borderTopLeftRadius: _Config__WEBPACK_IMPORTED_MODULE_2__["theme"].radius[1],
     borderBottomLeftRadius: _Config__WEBPACK_IMPORTED_MODULE_2__["theme"].radius[1],
     position: 'relative',
@@ -19023,35 +19028,36 @@ var StoresFeedItemDescription = function StoresFeedItemDescription(_ref2) {
       storeTitle = _ref2.storeTitle,
       storeIsVerified = _ref2.storeIsVerified;
   return react__WEBPACK_IMPORTED_MODULE_0__["createElement"](rebass__WEBPACK_IMPORTED_MODULE_1__["Box"], {
+    width: 1,
     style: {
       padding: "0 ".concat(space[1], " ").concat(space[1], " ").concat(space[1])
     }
   }, react__WEBPACK_IMPORTED_MODULE_0__["createElement"](rebass__WEBPACK_IMPORTED_MODULE_1__["Flex"], {
     alignItems: 'center'
   }, react__WEBPACK_IMPORTED_MODULE_0__["createElement"](rebass__WEBPACK_IMPORTED_MODULE_1__["Heading"], {
-    style: {
-      flex: 1,
-      color: _Config__WEBPACK_IMPORTED_MODULE_2__["theme"].palette.grayscale[1]
-    }
+    fontSize: 3,
+    flex: 1,
+    color: _Config__WEBPACK_IMPORTED_MODULE_2__["theme"].palette.grayscale[1],
+    mb: space[0]
   }, react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("a", null, storeTitle)), storeIsVerified && react__WEBPACK_IMPORTED_MODULE_0__["createElement"](___WEBPACK_IMPORTED_MODULE_3__["VerificationMark"], null)), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](rebass__WEBPACK_IMPORTED_MODULE_1__["Text"], {
     fontSize: _Config__WEBPACK_IMPORTED_MODULE_2__["theme"].fontSizes[1],
     lineHeight: space[1],
-    color: _Config__WEBPACK_IMPORTED_MODULE_2__["theme"].palette.grayscale[2]
+    color: _Config__WEBPACK_IMPORTED_MODULE_2__["theme"].palette.grayscale[2],
+    paddingLeft: space[0],
+    width: '95%'
   }, storeDescription));
 };
 var StoresFeedItemFooter = function StoresFeedItemFooter(_ref3) {
   var storeHours = _ref3.storeHours,
       storeServiceFee = _ref3.storeServiceFee;
   return react__WEBPACK_IMPORTED_MODULE_0__["createElement"](rebass__WEBPACK_IMPORTED_MODULE_1__["Flex"], {
-    margin: 0,
-    width: '100%',
-    padding: "".concat(space[0], " ").concat(space[1]),
+    width: '97%',
+    padding: "0 ".concat(space[0], " 0 ").concat(space[2]),
     bg: _Config__WEBPACK_IMPORTED_MODULE_2__["theme"].palette.grayscale[6],
     justifyContent: 'space-between',
     alignItems: 'center'
   }, react__WEBPACK_IMPORTED_MODULE_0__["createElement"](rebass__WEBPACK_IMPORTED_MODULE_1__["Text"], {
     fontSize: _Config__WEBPACK_IMPORTED_MODULE_2__["theme"].fontSizes[0],
-    margin: 0,
     fontWeight: 600,
     color: _Config__WEBPACK_IMPORTED_MODULE_2__["theme"].palette.grayscale[3]
   }, react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("b", {
@@ -19141,17 +19147,21 @@ __webpack_require__.r(__webpack_exports__);
 
 var VerificationMark = function VerificationMark() {
   return react__WEBPACK_IMPORTED_MODULE_0__["createElement"](rebass__WEBPACK_IMPORTED_MODULE_1__["Box"], {
-    borderRadius: '50%',
-    background: _Config__WEBPACK_IMPORTED_MODULE_2__["theme"].palette.blue[6],
-    width: '24px',
-    height: '24px',
-    position: 'relative',
+    backgroundColor: _Config__WEBPACK_IMPORTED_MODULE_2__["theme"].palette.blue[6],
+    style: {
+      borderRadius: '50%',
+      position: 'relative',
+      height: '24px',
+      width: '24px'
+    },
     "data-testid": 'verification-mark'
   }, react__WEBPACK_IMPORTED_MODULE_0__["createElement"](rebass__WEBPACK_IMPORTED_MODULE_1__["Box"], {
-    position: 'absolute',
-    top: '75%',
-    left: '50%',
-    transform: 'translate(-50%, -70%)'
+    style: {
+      position: 'absolute',
+      top: '75%',
+      left: '50%',
+      transform: 'translate(-50%, -70%)'
+    }
   }, react__WEBPACK_IMPORTED_MODULE_0__["createElement"](___WEBPACK_IMPORTED_MODULE_3__["Icon"], {
     name: "check",
     fill: _Config__WEBPACK_IMPORTED_MODULE_2__["theme"].palette.blue[1]
@@ -19254,13 +19264,14 @@ __webpack_require__.r(__webpack_exports__);
 /*!*****************************!*\
   !*** ./src/Config/theme.ts ***!
   \*****************************/
-/*! exports provided: Input, Paragraph, theme */
+/*! exports provided: Input, Paragraph, shadows, theme */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Input", function() { return Input; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Paragraph", function() { return Paragraph; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "shadows", function() { return shadows; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "theme", function() { return theme; });
 /* harmony import */ var rebass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! rebass */ "./node_modules/rebass/dist/index.js");
 /* harmony import */ var rebass__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(rebass__WEBPACK_IMPORTED_MODULE_0__);
@@ -19292,6 +19303,7 @@ var Paragraph = Object(styled_components__WEBPACK_IMPORTED_MODULE_1__["default"]
   displayName: "theme__Paragraph",
   componentId: "q2l4lr-3"
 })(["font-size:", ";color:", ";line-height:21px;&:not(:last-child){margin-bottom:1rem;}"], fontSizes[2], grayscale[1]);
+var shadows = ["0px 15px 35px 0px ".concat(grayscale[5])];
 var theme = {
   palette: {
     grayscale: grayscale,
@@ -19302,6 +19314,7 @@ var theme = {
   fontSizes: fontSizes,
   radius: radius,
   space: space,
+  shadows: shadows,
   Card: Card,
   Heading: Heading,
   Input: Input,

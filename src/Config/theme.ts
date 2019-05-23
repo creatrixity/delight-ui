@@ -126,6 +126,10 @@ export const Paragraph = styled(Box)`
   }
 `;
 
+export const shadows = [
+  `0px 15px 35px 0px ${grayscale[5]}`
+]
+
 export const theme = {
   palette: {
     grayscale,
@@ -137,6 +141,7 @@ export const theme = {
   fontSizes,
   radius,
   space: space,
+  shadows,
 
   Card,
   Heading,

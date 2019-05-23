@@ -7,14 +7,14 @@ import {
   Card,
   Flex
 } from 'rebass';
-
+import { theme } from '@Config';
 import {
   StoresFeedItemDescription,
   StoresFeedItemFooter,
   StoresFeedItemThumbnail
 } from './StoresFeedItemAtoms';
 
-const thumbnailWidth = '30%';
+const thumbnailWidth = '25%';
 const contentWidth = `${100 - parseInt(thumbnailWidth)}%`;
 
 type StoresFeedItemProps = {
@@ -42,19 +42,20 @@ export const StoresFeedItem:React.FC<StoresFeedItemProps> = ({
 }) => {
   return (
     <Box data-testid={'stores-feed-item'}>
-      <Card>
-        <Flex margin={0} width={'100%'}>
+      <Card backgroundColor={'#fff'} boxShadow={theme.shadows[0]} borderRadius={theme.radius[1]}>
+        <Flex margin={'0'} width={1}>
           <StoresFeedItemThumbnail
             width={thumbnailWidth}
             src={thumbnailImageSrc}
           />
 
-          <Box style={{ width: contentWidth }}>
+          <Box width={contentWidth}>
             <StoresFeedItemDescription
               storeDescription={description}
               storeTitle={title}
               storeIsVerified={isVerified}
             />
+
             <StoresFeedItemFooter
               storeHours={serviceHours}
               storeServiceFee={serviceFee}
