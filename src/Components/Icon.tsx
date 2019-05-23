@@ -53,7 +53,7 @@ const Base:React.FC<BaseProps> = ({ name, size, legacy, fill, ...props })
 
 export const Icon = styled(Base)`
   flex: none;
-  ${theme.spacing[0]} ${theme.palette.grayscale[0]};
+  ${theme.space[0]} ${theme.palette.grayscale[0]};
 `
 
 Icon.displayName = 'Icon'

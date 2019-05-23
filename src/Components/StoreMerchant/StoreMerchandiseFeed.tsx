@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import Link from 'next/link';
-import { Box, Heading } from 'reakit';
+import { Box, Heading } from 'rebass';
 import {
   Col,
   Row,
@@ -20,13 +20,13 @@ const RANGE_POOL = '12345';
 
 export const StoreMerchandiseFeed:React.FC<StoreMerchandiseFeedProps> = ({ }) => {
   return (
-    <Box padding={`${theme.spacing[0]} 0`}>
+    <Box padding={`${theme.space[0]} 0`}>
       <Grid>
         <Row>
           <Col>
             <Heading
               use="h3"
-              margin={`${theme.spacing[1]} 0`}
+              margin={`${theme.space[1]} 0`}
               color={theme.palette.grayscale[2]}
               data-testid={'store-merchandise-screen-title'}
             >

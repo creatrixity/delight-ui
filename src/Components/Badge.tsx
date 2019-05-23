@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Flex } from 'reakit';
+import { Flex } from 'rebass';
 import { theme } from '@Config';
 import { Icon } from '@Components';
 
@@ -30,11 +30,11 @@ export const Badge:React.FC<BadgeProps> = ({ background, color, icon, text }) =>
       fontSize={theme.fontSizes[0]}
       fontWeight={'600'}
       margin={0}
-      padding={`${parseInt(theme.spacing[0]) / 2}px ${theme.spacing[0]}`}
+      padding={`${parseInt(theme.space[0]) / 2}px ${theme.space[0]}`}
       textTransform={'uppercase'}
     >
-      {icon && <Icon name={icon} size={theme.spacing[1]}/>}
-      <span style={{ paddingLeft: theme.spacing[0] }}>{text}</span>
+      {icon && <Icon name={icon} size={theme.space[1]}/>}
+      <span style={{ paddingLeft: theme.space[0] }}>{text}</span>
     </Flex>
   )
 }

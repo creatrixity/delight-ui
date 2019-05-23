@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import Link from 'next/link';
-import { Box, Heading } from 'reakit';
+import { Box, Heading } from 'rebass';
 import {
   Col,
   Row,
@@ -31,13 +31,12 @@ const RANGE_POOL = '12345';
 
 export const StoresFeed:React.FC<StoresFeedProps> = ({ stores, isFetchingStores }) => {
   return (
-    <Box padding={`${theme.spacing[0]} 0`}>
+    <Box padding={`${theme.space[0]} 0`}>
       <Grid>
         <Row>
           <Col>
             <Heading
-              use="h3"
-              margin={`${theme.spacing[1]} 0`}
+              margin={`${theme.space[1]} 0`}
               color={theme.palette.grayscale[2]}
               data-testid={'stores-screen-title'}
             >
@@ -46,7 +45,7 @@ export const StoresFeed:React.FC<StoresFeedProps> = ({ stores, isFetchingStores 
             {isFetchingStores && 
               <Box>
                 {Array.from(RANGE_POOL).map((poolPick:string) => (
-                  <Box key={poolPick} marginBottom={theme.spacing[1]}>
+                  <Box key={poolPick} marginBottom={theme.space[1]}>
                     <StoresFeedItemSkeleton />
                   </Box>
                 ))}
@@ -65,18 +64,16 @@ export const StoresFeed:React.FC<StoresFeedProps> = ({ stores, isFetchingStores 
                 close_at,
                 verified_at
               }:IStorePage.IStoreData) => 
-                <Box key={id} marginBottom={theme.spacing[0]}>
+                <Box key={id} marginBottom={theme.space[0]}>
                   <Link href={getStoreItemPath(id, name)}>
-                    <a>
-                      <StoresFeedItem
-                        description={description}
-                        thumbnailImageSrc={`/static/img/${brand}`}
-                        title={name}
-                        serviceHours={`${formatServiceHour(open_at)} am - ${formatServiceHour(close_at)} pm`}
-                        serviceFee={`N${service_fee}`}
-                        isVerified={verified_at !== null}
-                      />
-                    </a>
+                    <StoresFeedItem
+                      description={description}
+                      thumbnailImageSrc={`/static/img/${brand}`}
+                      title={name}
+                      serviceHours={`${formatServiceHour(open_at)} am - ${formatServiceHour(close_at)} pm`}
+                      serviceFee={`N${service_fee}`}
+                      isVerified={verified_at !== null}
+                    />
                   </Link>
                 </Box>
                 )}

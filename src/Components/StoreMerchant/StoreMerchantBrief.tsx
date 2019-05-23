@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Box, Heading } from 'reakit';
+import { Box, Heading } from 'rebass';
 import {
   Col,
   Row,
@@ -12,13 +12,13 @@ type StoreMerchantBriefProps = {};
 
 export const StoreMerchantBrief:React.FC<StoreMerchantBriefProps> = ({ }) => {
   return (
-    <Box padding={`${theme.spacing[0]} 0`}>
+    <Box padding={`${theme.space[0]} 0`}>
       <Grid>
         <Row>
           <Col>
             <Heading
               use="h4"
-              margin={`${theme.spacing[1]} 0`}
+              margin={`${theme.space[1]} 0`}
               color={theme.palette.grayscale[2]}
               data-testid={'store-merchandise-screen-title'}
             >

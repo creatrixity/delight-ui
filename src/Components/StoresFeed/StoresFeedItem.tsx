@@ -6,7 +6,7 @@ import {
   Box,
   Card,
   Flex
-} from 'reakit';
+} from 'rebass';
 
 import {
   StoresFeedItemDescription,

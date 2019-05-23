@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Box } from 'reakit';
+import { Box } from 'rebass';
 import { theme } from '@Config';
 import { Icon } from '@Components';
 

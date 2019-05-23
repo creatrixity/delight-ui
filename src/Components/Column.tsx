@@ -1,6 +1,6 @@
 import * as React from 'react';
 import styled from 'styled-components';
-import { Box } from 'reakit';
+import { Flex } from 'rebass';
 
 import { computeColumnWidth } from '@Utilities';
 
@@ -14,7 +14,7 @@ type ColumnProps = {
   /** Column width at extra large breakpoints */
   xl?: number,
   /** Width of gutter */
-  gutterWidth?: string,
+  gutterWidth?: string | number,
   /** CSS styling */
   style?: React.CSSProperties
 };
@@ -22,24 +22,25 @@ type ColumnProps = {
 export const Column:React.FC<ColumnProps> = (props) => {
   const { sm, md, lg, xl, gutterWidth, children, style } = props;
 
-  const Col = styled(Box)`
+  const Col = styled(Flex)`
     padding-left: ${gutterWidth};
     padding-right: ${gutterWidth};
     width: 100%;
+    flex-direction: column;
 
-    @media (min-width: 576px) {
+    @media (max-width: 576px) {
       ${sm && computeColumnWidth(sm)};
     }
 
-    @media (min-width: 768px) {
+    @media (max-width: 768px) {
       ${md && computeColumnWidth(md)};
     }
 
-    @media (min-width: 992px) {
+    @media (max-width: 992px) {
       ${lg && computeColumnWidth(lg)};
     }
 
-    @media only screen and (min-width: 1200px) {
+    @media only screen and (max-width: 1200px) {
       ${xl && computeColumnWidth(xl)};
     }
   `;

@@ -7,13 +7,13 @@ import {
   Card,
   Flex,
   Heading,
-  Paragraph
-} from 'reakit';
+  Text
+} from 'rebass';
 
 import { theme } from '@Config';
 import { Badge, VerificationMark, Stencil } from '@Components';
 
-const { spacing } = theme;
+const { space } = theme;
 
 type StoresFeedItemThumbnailProps = {
   /** Item thumbnail source file path */
@@ -64,24 +64,25 @@ export const StoresFeedItemDescription:React.FC<StoresFeedItemDescriptionProps> 
   storeTitle,
   storeIsVerified
 }) => (
-  <Box style={{ padding: `0 ${spacing[1]} ${spacing[1]} ${spacing[1]}` }}>
+  <Box style={{ padding: `0 ${space[1]} ${space[1]} ${space[1]}` }}>
     <Flex alignItems={'center'}>
       <Heading
-        use="h6"
         style={{
           flex: 1,
           color: theme.palette.grayscale[1]
-        }}>{storeTitle}</Heading>
+        }}>
+          <a>{storeTitle}</a>
+        </Heading>
       { storeIsVerified && <VerificationMark /> }
     </Flex>
 
-    <Paragraph
+    <Text
       fontSize={theme.fontSizes[1]}
-      lineHeight={spacing[1]}
+      lineHeight={space[1]}
       color={theme.palette.grayscale[2]}
     >
       {storeDescription}
-    </Paragraph>
+    </Text>
   </Box>
 )
 
@@ -99,19 +100,19 @@ export const StoresFeedItemFooter:React.FC<StoresFeedItemFooterProps> = ({
   <Flex
     margin={0}
     width={'100%'}
-    padding={`${spacing[0]} ${spacing[1]}`}
-    background={theme.palette.grayscale[6]}
+    padding={`${space[0]} ${space[1]}`}
+    bg={theme.palette.grayscale[6]}
     justifyContent={'space-between'}
     alignItems={'center'}
   >
-    <Paragraph
+    <Text
       fontSize={theme.fontSizes[0]}
       margin={0}
-      fontWeight={'600'}
+      fontWeight={600}
       color={theme.palette.grayscale[3]}
     >
       <b style={{ color: theme.palette.grayscale[1] }}>{storeServiceFee}</b> per delivery
-    </Paragraph>
+    </Text>
     <Badge
       icon={'timer'}
       text={storeHours}
@@ -128,9 +129,9 @@ export const StoresFeedItemSkeleton:React.FC = ({}) => (
           <Flex
             alignItems={'center'}
             width={'100%'}
-            background={'#fff'}
+            bg={'#fff'}
             justifyContent={'space-between'}
-            marginBottom={spacing[0]}
+            marginBottom={space[0]}
           >
             <Stencil width={'45%'} />
             <Stencil width={'24px'} height={'24px'} radius={'100%'} />

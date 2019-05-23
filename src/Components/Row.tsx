@@ -1,6 +1,6 @@
 import * as React from 'react';
 import styled from 'styled-components';
-import { Flex } from 'reakit';
+import { Flex } from 'rebass';
 
 type RowProps = {
   /** Gutter width for component */

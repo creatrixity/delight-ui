@@ -1,12 +1,12 @@
 import styled from 'styled-components';
-import { Flex, Input } from 'reakit';
+import { Flex } from 'rebass';
 import { theme } from '@Config';
 
-const { spacing, radius } = theme;
+const { space, radius } = theme;
 
-const searchBarHeight:string = spacing[3];
-const searchBarPaddingHorizontal:string = spacing[3];
-const searchBarIconSize:number = parseInt(spacing[2], 10);
+const searchBarHeight:string = space[3];
+const searchBarPaddingHorizontal:string = space[3];
+const searchBarIconSize:number = parseInt(space[2], 10);
 const searchBarAddonWidth:number = searchBarIconSize + parseInt(searchBarPaddingHorizontal, 10);
 
 export const SearchBarAddon = styled(Flex)`
@@ -19,7 +19,7 @@ export const SearchBarAddon = styled(Flex)`
     left: 0;
 `;
 
-export const SearchBarInput = styled(Input)`
+export const SearchBarInput = styled('input')`
     background: #fff;
     border-color: #fff;
     height: ${searchBarHeight};

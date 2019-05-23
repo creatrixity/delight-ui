@@ -11,8 +11,6 @@ type transformValueTypes = {
 }
 
 type HamburgerMenuProps = transformValueTypes & {
-  /** Callback when the icon is clicked */
-  menuClicked: () => any,
   /** Renders the open state of the icon */
   isOpen?: boolean,
   /** Icon width */
@@ -30,14 +28,18 @@ type HamburgerMenuProps = transformValueTypes & {
   className?: string
 }
 
+type HamburgerMenuState = {
+  isOpen: boolean
+}
+
 const defaultProps = {
-  width: 32,
-  height: 16,
+  width: 24,
+  height: 8,
   isOpen: false,
-  strokeWidth: 4,
-  animationDuration: 0.4,
+  strokeWidth: 2,
+  animationDuration: 6,
   rotate: 0,
-  borderRadius: 8,
+  borderRadius: 64,
   color: '#000'
 }
 
@@ -61,8 +63,6 @@ const getLineBase = (
     height: `${strokeWidth}px`,
     width: '100%',
     background: color,
-    transitionTimingFunction: "ease",
-    transitionDuration: `${animationDuration}s`,
     borderRadius: `${borderRadius}px`,
     transformOrigin: 'center',
     position: absolutePosition,
@@ -81,35 +81,53 @@ const getMedianLine = (animationDuration: number, isOpen:boolean, offsetTop:stri
   }
 }
 
-export const HamburgerIcon:React.FC<HamburgerMenuProps> = (props) => {
-  let {
-    animationDuration = defaultProps.animationDuration,
-    borderRadius = defaultProps.borderRadius,
-    color = defaultProps.color,
-    isOpen = defaultProps.isOpen,
-    strokeWidth = defaultProps.strokeWidth
-  } = props
+export class HamburgerIcon extends React.PureComponent<HamburgerMenuProps, HamburgerMenuState> {
+  state = {
+    isOpen: false
+  }
 
-  const width = `${props.width}px`,
-    height = `${props.height}px`,
-    halfHeight = `${parseInt(height) / 2}px`,
-    halfStrokeWidth = `-${strokeWidth / 2}px`;
+  constructor(props:HamburgerMenuProps) {
+    super(props)
+    this.handleMenuToggleClick = this.handleMenuToggleClick.bind(this);
+  }
 
-  const styles = {
-    container: { width, height, transform: `rotate(${props.rotate}deg)`, position: relativePosition },
-    lineBase: getLineBase(animationDuration, borderRadius, color || '#000', strokeWidth, halfStrokeWidth),
-    firstLine: { transform: getTransformValue(isOpen, 0, 45, halfHeight) },
-    secondLine: getMedianLine(animationDuration, isOpen, halfHeight, halfStrokeWidth),
-    thirdLine: {transform: getTransformValue(isOpen, height, -45, halfHeight)}
-  };
+  handleMenuToggleClick() {
+    return this.setState(({ isOpen }) => {
+      return {
+        isOpen: !isOpen
+      }
+    })
+  }
 
-  return (
-    <div style={{ ...styles.container }} className={props.className} onClick={props.menuClicked}>
-      <span style={{ ...styles.lineBase, ...styles.firstLine }} />
-      <span style={{ ...styles.lineBase, ...styles.secondLine }} />
-      <span style={{ ...styles.lineBase, ...styles.thirdLine }} />
-    </div>
-  );
+  render() {
+    let {
+      animationDuration = defaultProps.animationDuration,
+      borderRadius = defaultProps.borderRadius,
+      color = defaultProps.color,
+      strokeWidth = defaultProps.strokeWidth
+    } = this.props
+
+    const { isOpen } = this.state;
+  
+    const width = `${this.props.width}px`,
+      height = `${this.props.height}px`,
+      halfHeight = `${parseInt(height) / 2}px`,
+      halfStrokeWidth = `-${strokeWidth / 2}px`;
+  
+    const styles = {
+      container: { width, height, position: relativePosition },
+      lineBase: getLineBase(animationDuration, borderRadius, color || '#000', strokeWidth, halfStrokeWidth),
+      firstLine: { transform: getTransformValue(isOpen, 0, 45, halfHeight) },
+      thirdLine: {transform: getTransformValue(isOpen, height, -45, halfHeight)}
+    };
+
+    return (
+      <div style={{ ...styles.container }} className={isOpen ? 'hamburgerLineOpen': 'hamburgerLineClose'} onClick={this.handleMenuToggleClick}>
+        <span style={{ ...styles.lineBase, ...styles.firstLine }} />
+        <span style={{ ...styles.lineBase, ...styles.thirdLine }} />
+      </div>
+    );  
+  }
 }
 
 HamburgerIcon.defaultProps = defaultProps;
