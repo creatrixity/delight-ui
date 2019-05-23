@@ -36,7 +36,7 @@ export const SearchBarInput = styled('input')`
     }
     
     ::placeholder {
-      color: #ccc;
+      color: ${palette.grayscale[4]};
     }  
 `;
 

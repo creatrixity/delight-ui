@@ -18661,7 +18661,7 @@ var SearchBarAddon = Object(styled_components__WEBPACK_IMPORTED_MODULE_0__["defa
 var SearchBarInput = Object(styled_components__WEBPACK_IMPORTED_MODULE_0__["default"])('input').withConfig({
   displayName: "SearchBarAtoms__SearchBarInput",
   componentId: "piriy8-1"
-})(["background:#fff;border-color:#fff;height:", ";border-radius:", ";padding-left:", "px;--webkit-appearance:none;outline:none;border-width:0;:focus{box-shadow:0 0 0 1px ", ";background:", ";outline:none;}::placeholder{color:#ccc;}"], searchBarHeight, radius[2], searchBarAddonWidth, palette.grayscale[5], palette.grayscale[6]);
+})(["background:#fff;border-color:#fff;height:", ";border-radius:", ";padding-left:", "px;--webkit-appearance:none;outline:none;border-width:0;:focus{box-shadow:0 0 0 1px ", ";background:", ";outline:none;}::placeholder{color:", ";}"], searchBarHeight, radius[2], searchBarAddonWidth, palette.grayscale[5], palette.grayscale[6], palette.grayscale[4]);
 var SearchBarWrapper = Object(styled_components__WEBPACK_IMPORTED_MODULE_0__["default"])(rebass__WEBPACK_IMPORTED_MODULE_1__["Flex"]).withConfig({
   displayName: "SearchBarAtoms__SearchBarWrapper",
   componentId: "piriy8-2"
